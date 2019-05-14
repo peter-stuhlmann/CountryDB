@@ -8,6 +8,7 @@ import LegalNotice from './LegalNotice';
 import PrivacyPolicy from './PrivacyPolicy';
 import Footer from './Footer';
 import CountryList from './CountryList';
+import NotFound from './NotFound';
 
 export default class App extends Component {
 
@@ -62,6 +63,7 @@ export default class App extends Component {
                     <Route exact path="/" component={ Main } />
                     <Route path="/legalnotice" component={ LegalNotice } />
                     <Route path="/privacypolicy" component={ PrivacyPolicy } />
+                    <Route component={ NotFound } />
                   </Switch>
                 </main>
               </div>
