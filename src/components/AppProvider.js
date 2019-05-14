@@ -6,6 +6,7 @@ export default class AppProvider extends Component {
         searchTerm: "",
         results: null,
         chosenCountry: "Germany",
+        chosenLanguage: "en",
         search: (searchTerm = "all") => {
             fetch(`https://restcountries.eu/rest/v2/all`)
                 .then(response => response.json())
@@ -16,6 +17,10 @@ export default class AppProvider extends Component {
         },
         filterResults: (searchInput) => {
             this.setState({ searchTerm: searchInput.current.value.toLowerCase() })
+        },
+        choseLanguage: (selectLanguage) => {
+            console.log(selectLanguage.current.value)
+            this.setState({ chosenLanguage: selectLanguage.current.value })
         }
     }
     componentDidMount() {

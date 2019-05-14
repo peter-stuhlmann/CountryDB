@@ -10,7 +10,7 @@ export default class Country extends Component {
                     context.results.map(country =>
                         ((country.name == context.chosenCountry) &&
                           <React.Fragment>
-                            <h1>{country.name}</h1>
+                            <h1>{country.translations[context.chosenLanguage] || country.name}</h1>
                             <span>TopLevelDomain: {country.topLevelDomain}</span><br />
                             <span>CountryCode: {country.alpha2Code}</span><br /><br />
 
@@ -29,7 +29,7 @@ export default class Country extends Component {
                             <span>Brazilian: {country.translations.br}</span><br />
                             <span>Portuguese: {country.translations.pt}</span><br />
                             <span>Dutch: {country.translations.nl}</span><br />
-                            <span>Hungarian: {country.translations.hr}</span><br />
+                            <span>Croatian: {country.translations.hr}</span><br />
                             <span>Persian: {country.translations.fa}</span><br />
                           </React.Fragment>
                         )
