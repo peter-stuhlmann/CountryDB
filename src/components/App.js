@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AppProvider from './AppProvider';
 import AppContext from './AppContext';
 import Header from './Header';
 import Main from './Main';
+import LegalNotice from './LegalNotice';
+import PrivacyPolicy from './PrivacyPolicy';
 import Footer from './Footer';
 import CountryList from './CountryList';
 
@@ -37,32 +40,39 @@ export default class App extends Component {
     return ( 
       this.state.results &&
 
-      <AppProvider>
-  
-        <Header />
+      <Router>
+        <AppProvider>
+    
+          <Header />
 
-        <AppContext.Consumer>
-          {context =>
-            context.results &&
-            <div className="content">
+          <AppContext.Consumer>
+            {context =>
+              context.results &&
+              <div className="content">
 
-              <aside>
-                <ul>
-                  <CountryList />
-                </ul>
-              </aside>
+                <aside>
+                  <ul>
+                    <CountryList />
+                  </ul>
+                </aside>
 
-              <main>
-                <Main />
-              </main>
-            </div>
-          }
-        </AppContext.Consumer>
+                <main>
+                  
+                  <Switch>
+                    <Route exact path="/" component={ Main } />
+                    <Route path="/legalnotice" component={ LegalNotice } />
+                    <Route path="/privacypolicy" component={ PrivacyPolicy } />
+                  </Switch>
+                </main>
+              </div>
+            }
+          </AppContext.Consumer>
 
 
-        <Footer />
+          <Footer />
 
-      </AppProvider>
+        </AppProvider>
+      </Router>
     )
   }
 
