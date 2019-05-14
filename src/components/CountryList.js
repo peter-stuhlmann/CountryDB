@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AppContext from "./AppContext";
-import Country from "./Country"
 
 export default class CountryList extends Component {
   render() {
@@ -9,9 +8,9 @@ export default class CountryList extends Component {
         {context =>
           <aside>
             {context.results.map(country =>                         
-              <li id={country.name}>
-                <strong>{country.name}</strong><br />
-                <span>{country.region}</span>
+              <li onClick={context.handleClick} className={country.name}>
+                <strong className={country.name}>{country.name}</strong><br />
+                <span className={country.name}>{country.region}</span>
               </li>
             )}
           </aside>
